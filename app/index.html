@@ -9,12 +9,23 @@
 
 <title>Vendor System - Sandviks, USA - the Art of Office Administration</title>
 
-<link href="styles/bootstrap.css" rel="stylesheet">
-<link href="styles/custom-style.css" rel="stylesheet">
-    
-<link rel="stylesheet" href="styles/ng-table.css"/>
-<link rel="stylesheet" href="styles/custom-app.css"/>
-<link rel="stylesheet" href="styles/custom-adapt-strap.css"/>
+<!-- build:css(.) styles/vendor.css -->
+<!-- bower:css -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/adapt-strap/dist/adapt-strap.css" />
+<link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+<link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" />
+<link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" />
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+<link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.min.css" />
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/custom-app.css" />
+<link rel="stylesheet" href="styles/custom-style.css" />
+
+<!-- endbuild -->
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,7 +44,7 @@
             	<div class="col-md-4">
                 	<a href="/#"><img src="images/sandviksLogo.gif" alt="sandviks logo" class="responsiveImg"></a>
                 </div>
-                
+
                 <div class="col-md-4 col-md-offset-4 text-right" ng-show="loggedIn">
                 	<div class="btn-group customBtnGr" role="group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -45,14 +56,14 @@
                             <!--<li><a ng-href="#">Vendors</a></li>
                             <li><a ng-href="#/checkpage">Check Page</a></li>-->
                         </ul>
-                        
+
                         <a ng-href="#/login"><button type="button" class="btn btn-primary marginLeft5" ng-class="{active: $location.path() === '/login'}"><span ng-show="loggedIn">Logout</span></button></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <section class="row headerSubMenu" ng-show="loggedIn">
     	<div class="container-fluid">
         	<div class="col-md-12">
@@ -63,7 +74,7 @@
                     <ul ng-if="opendiv == 'offersetup'">
                         <li class="{{getClass('/orderforms')}}" ng-class="{active: $location.path() == '/orderforms'}"><a ng-href="#/orderforms">Order Forms</a></li>
                         <li class="{{getClass('/promolist')}}" ng-class="{active: $location.path() == '/promolist'}"><a ng-href="#/promolist">Promo Mapping</a></li>
-                        <li class="{{getClass('/offergroup')}}" ng-class="{active: $location.path() == '/offergroup'}"><a ng-href="#/offergroup">Offer Group</a></li>  
+                        <li class="{{getClass('/offergroup')}}" ng-class="{active: $location.path() == '/offergroup'}"><a ng-href="#/offergroup">Offer Group</a></li>
                         <li class="{{getClass('/offerimport')}}" ng-class="{active: $location.path() == '/offerimport'}"><a ng-href="#/offerimport">Offer Import</a></li>
                         <li class="{{getClass('/customerservice')}}" ng-class="{active: $location.path() == '/customerservice'}"><a ng-href="#/customerservice">Customer Orders</a></li>
                     </ul>
@@ -71,13 +82,13 @@
             </div>
         </div>
     </section>
-    
+
     <section class="container-fluid">
     	<div class="row">
             <div ng-view=""></div>
         </div>
     </section>
-    
+
     <footer class="row">
     	<div class="footer">
             <div class="container-fluid">
@@ -87,7 +98,7 @@
             </div>
         </div>
     </footer>
-    
+
     <!--Modal Text-->
     <script type="text/ng-template" id="myModalContent.html">
             <div class="modal-header"><h3 class="modal-title">Error</h3></div>
@@ -98,24 +109,28 @@
     </script>
     <!--Modal Text-->
 
-    <script src="scripts/js/moment.min.js"></script>
+		<!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/adapt-strap/dist/adapt-strap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/adapt-strap/dist/adapt-strap.min.js"></script>
-    <script src="bower_components/adapt-strap/dist/adapt-strap.tpl.min.js"></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+    <script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="bower_components/ckeditor/ckeditor.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/ng-table/dist/ng-table.min.js"></script>
     <!-- endbower -->
-    <script src="scripts/js/xeditable.js"></script>
-    <link href="styles/xeditable.css" rel="stylesheet">
+		<!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->    
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/orderforms.js"></script>
     <script src="scripts/controllers/insertorderforms.js"></script>
@@ -129,15 +144,10 @@
     <script src="scripts/controllers/offerimport.js"></script>
     <script src="scripts/controllers/customerservice.js"></script>
     <script src="scripts/controllers/test-offergroup.js"></script>
-    
+
     <script src="scripts/app-services/authentication.service.js"></script>
     <script src="scripts/app-services/flash.service.js"></script>
     <script src="scripts/app-services/user.service.local-storage.js"></script>
-
-    <script src="http://ckeditor.com/apps/ckeditor/4.2/ckeditor.js"></script>
-    <script src="scripts/ng-table.js"></script>     
-    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
-    <script src="scripts/js/bootstrap-datepicker.min.js"></script>
     <!-- endbuild -->
 </body>
 </html>
