@@ -386,7 +386,36 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
-    }
+    },
+
+    // deploy via rsync
+    rsync: {
+        options: {
+            src: 'dist/',
+            args: ['--verbose', '-zvp', '--chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r'],
+            exclude: ['.git*', 'error_log', 'node_modules', '.editorconfig', 'Gruntfile.js', 'package.json', '.DS_Store', 'README.md', '.jshintrc', '.jshintignore', '.gitignore', '*.psd'],
+            include: [],
+            recursive: true,
+            syncDestIgnoreExcl: true,
+            compareMode: 'checksum'
+        },
+
+        beta: {
+            options: {
+                exclude: ['node_modules'],
+                dest: '/var/www/admin/.',
+                host: 'www-data@10.1.10.12'
+            }
+        },
+
+        prod: {
+            options: {
+                exclude: ['node_modules'],
+                dest: '/var/www/admin/.',
+                host: 'www-data@10.1.10.12'
+            }
+        }
+      }
   });
 
 
